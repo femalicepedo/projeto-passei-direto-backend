@@ -1,8 +1,8 @@
-"use strict";
+"use strict";
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("disc", {
+    return queryInterface.createTable("disc_file", {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -13,15 +13,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      artist: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      year: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      info: {
+      path: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -37,6 +29,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("disc");
+    return queryInterface.dropTable("disc_file");
   }
 };

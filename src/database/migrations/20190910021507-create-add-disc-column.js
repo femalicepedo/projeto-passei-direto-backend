@@ -5,13 +5,13 @@ module.exports = {
     return queryInterface.addColumn("disc_file", "disc_id", {
       type: Sequelize.INTEGER,
       references: { model: "disc", key: "id" },
-      onUpdate: "cascade",
-      onDelete: "cascade",
+      onUpdate: "CASCADE",
+      onDelete: "CASCADE",
       allowNull: true
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.removeColumn("disc", "disc_file_id");
+    return queryInterface.removeColumn("disc_file", "disc_id");
   }
 };

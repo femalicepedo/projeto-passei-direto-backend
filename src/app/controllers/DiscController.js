@@ -3,7 +3,13 @@ import Disc from "../models/Disc";
 
 class DiscController {
   async store(req, res) {
-    const { originalname: name, filename: path } = req.file;
+    let name = "",
+      path = "";
+
+    if (req.file) {
+      name = req.file.originalname;
+      path = req.file.filename;
+    }
 
     const disc = await Disc.create(
       {
